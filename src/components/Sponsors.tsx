@@ -3,8 +3,8 @@ import { Card } from "@/components/ui/card";
 import { Download } from "lucide-react";
 
 const Sponsors = () => {
-  const rows = [[1], [2,3], [4,5,6], [7,8,9,10], [11,12,13]];
-  const sizeClasses = ['w-52 h-52', 'w-40 h-40', 'w-32 h-32', 'w-28 h-28', 'w-24 h-24'];
+  const rows = [[1], [2, 3], [4, 5, 6], [7, 8, 9, 10], [11, 12, 13]];
+  const sizeClasses = ['w-64 h-64 md:w-80 md:h-80', 'w-48 h-48 md:w-56 md:h-56', 'w-40 h-40 md:w-44 md:h-44', 'w-32 h-32 md:w-36 md:h-36', 'w-24 h-24 md:w-28 md:h-28'];
 
   return (
     <section id="sponsors" className="py-20 bg-background">
@@ -22,79 +22,30 @@ const Sponsors = () => {
           </p>
         </div>
 
-        <div className="relative flex justify-center mb-10">
-          <div className="flex flex-col items-center z-10">
-            <div className="rounded-full w-56 h-56 md:w-64 md:h-64 flex items-center justify-center overflow-hidden shadow-lg bg-white">
-              <img src="/title-sponsor.jpeg" alt="Title Sponsor" className="w-full h-full object-contain" />
-            </div>
-            <span className="mt-4 text-lg md:text-xl font-bold text-foreground">Title Sponsor</span>
-          </div>
-
-          {/* Silver sponsor placed diagonally below the title sponsor */}
-          <div className="absolute md:right-1/4 right-10 top-3/4 transform rotate-12 -translate-y-1/2">
-            <div className="flex flex-col items-center">
-              <div className="rounded-full w-20 h-20 md:w-24 md:h-24 overflow-hidden shadow-md border border-muted-foreground/20">
-                <img src="/silver-sponsor.jpeg" alt="Silver Sponsor" className="w-full h-full object-contain" />
-              </div>
-              <span className="mt-2 text-sm font-semibold text-foreground">Silver Sponsor</span>
-            </div>
-          </div>
-        </div>
 
         <div className="max-w-5xl mx-auto">
-          {/* Pyramid layout: rows of 1,2,3,4,3 items centered */}
-          {rows.map((row, rowIndex) => (
-            <div key={rowIndex} className="flex justify-center gap-8 mb-8 flex-wrap">
-              {row.map((i) => {
-                const size = sizeClasses[rowIndex] ?? 'w-24 h-24';
-                return (
+          {/* Pyramid layout: rows of 1,2,3,4,3 items centered (placeholders only) */}
+          {rows.map((row, rowIndex) => {
+            const size = sizeClasses[rowIndex];
+            return (
+              <div key={rowIndex} className="flex justify-center gap-8 mb-8 flex-wrap">
+                {row.map((i) => (
                   <div key={i} className="flex flex-col items-center gap-2">
                     <div
-                      className={`rounded-full flex items-center justify-center transition-all hover:scale-105 hover:bg-primary/20 overflow-hidden ${size}`}
-                      style={(i >=1 && i <=8) ? { backgroundColor: 'transparent' } : undefined}
+                      className={`rounded-full flex items-center justify-center bg-muted/10 border border-muted-foreground/10 ${size} overflow-hidden`}
+                      role="img"
+                      aria-label={`Sponsor slot ${i}`}
                     >
                       {i === 1 ? (
-                        <img src="/1.png" alt="Bronze Sponsor" className="w-3/4 h-3/4 object-contain rounded-full" />
-                      ) : i === 2 ? (
-                        <img src="/6.png" alt="EyeCare Partner" className="w-full h-full object-cover rounded-full" />
-                      ) : i === 3 ? (
-                        <img src="/2.jpg" alt="Event Partner" className="w-full h-full object-cover rounded-full" />
-                      ) : i === 4 ? (
-                        <img src="/3.png" alt="Venue Partner" className="w-full h-full object-cover rounded-full" />
-                      ) : i === 5 ? (
-                        <img src="/4.png" alt="Work Space Partner" className="w-full h-full object-cover rounded-full" />
-                      ) : i === 6 ? (
-                        <img src="/8.png" alt="Education Partner" className="w-full h-full object-cover rounded-full" />
-                      ) : i === 7 ? (
-                        <img src="/9.png" alt="Domain Partner" className="w-full h-full object-cover rounded-full" />
-                      ) : i === 8 ? (
-                        <img src="/2.png" alt="Theater Partner" className="w-full h-full object-cover rounded-full" />
-                      ) : i === 9 ? (
-                        <img src="/5.png" alt="Delivery Partner" className="w-full h-full object-cover rounded-full" />
-                      ) : i === 10 ? (
-                        <img src="/10.png" alt="Out Reach Partner" className="w-full h-full object-cover rounded-full" />
-                      ) : (
-                        <>
-                          <div className="absolute inset-0 rounded-full bg-primary/10" />
-                          <span className="text-foreground font-bold text-center text-sm px-4 relative z-10">Sponsor {i}</span>
-                        </>
-                      )}
+                        <img src="/title-sponsor.jpeg" alt="Title Sponsor" className="w-full h-full object-contain rounded-full" />
+                      ) : null}
                     </div>
-                    {i === 1 && <span className="text-foreground font-semibold text-sm">Bronze Sponsor</span>}
-                    {i === 2 && <span className="text-foreground font-semibold text-sm">EyeCare Partner</span>}
-                    {i === 3 && <span className="text-foreground font-semibold text-sm">Event Partner</span>}
-                    {i === 4 && <span className="text-foreground font-semibold text-sm">Venue Partner</span>}
-                    {i === 5 && <span className="text-foreground font-semibold text-sm">Work Space Partner</span>}
-                    {i === 6 && <span className="text-foreground font-semibold text-sm">Education Partner</span>}
-                    {i === 7 && <span className="text-foreground font-semibold text-sm">Domain Partner</span>}
-                    {i === 8 && <span className="text-foreground font-semibold text-sm">Theater Partner</span>}
-                    {i === 9 && <span className="text-foreground font-semibold text-sm">Delivery Partner</span>}
-                    {i === 10 && <span className="text-foreground font-semibold text-sm">Out Reach Partner</span>}
+                    {i === 1 && <span className="mt-2 text-lg md:text-xl font-semibold text-foreground">Title Sponsor</span>}
                   </div>
-                );
-              })}
-            </div>
-          ))}
+                ))}
+              </div>
+            );
+          })}
         </div>
 
         <div className="text-center mt-12">
@@ -115,4 +66,3 @@ const Sponsors = () => {
 };
 
 export default Sponsors;
-                    <img src="/2.jpg" alt="Event Partner" className="w-full h-full object-cover rounded-full" />
