@@ -22,12 +22,22 @@ const Sponsors = () => {
           </p>
         </div>
 
-        <div className="flex justify-center mb-10">
-          <div className="flex flex-col items-center">
-            <div className="rounded-full w-56 h-56 md:w-64 md:h-64 flex items-center justify-center overflow-hidden shadow-lg">
+        <div className="relative flex justify-center mb-10">
+          <div className="flex flex-col items-center z-10">
+            <div className="rounded-full w-56 h-56 md:w-64 md:h-64 flex items-center justify-center overflow-hidden shadow-lg bg-white">
               <img src="/title-sponsor.jpeg" alt="Title Sponsor" className="w-full h-full object-contain" />
             </div>
             <span className="mt-4 text-lg md:text-xl font-bold text-foreground">Title Sponsor</span>
+          </div>
+
+          {/* Silver sponsor placed diagonally below the title sponsor */}
+          <div className="absolute md:right-1/4 right-10 top-3/4 transform rotate-12 -translate-y-1/2">
+            <div className="flex flex-col items-center">
+              <div className="rounded-full w-20 h-20 md:w-24 md:h-24 overflow-hidden shadow-md border border-muted-foreground/20">
+                <img src="/silver-sponsor.jpeg" alt="Silver Sponsor" className="w-full h-full object-contain" />
+              </div>
+              <span className="mt-2 text-sm font-semibold text-foreground">Silver Sponsor</span>
+            </div>
           </div>
         </div>
 
